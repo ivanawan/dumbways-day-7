@@ -63,14 +63,34 @@
             </div>
             
        </section>      
-       <section style="height:100vh;" class="pt-4">
+       <section style="height:100vh;background-color: rgb(227, 230, 233);" class="pt-4">
          <h1 class=" mb-5 text-center">My Project</h1>
          <div class="container">
            <div class="row" id="grid">
-        
+         {{#each listProject}}
+            <div class="col-sm-12 col-md-6 col-xl-4 mt-4">
+              <a href="/project/{{@index}}" style="text-decoration: none; color:black;">
+        <div  class="card"   >
+        <img class="card-img-top" src="/public/asset/image.jpg" alt="">
+        <div class="card-body" >
+        <p class="card-title" style="margin-bottom:0px">{{this.title}}</p>
+        <p class="durasi" style="margin-top:0px;">Durasi : {{this.duration}}</p>
+        <p class="card-text">{{this.content}}</p>
+        <div class="d-flex mb-2">
+            {{#each this.checkbox}}
+            <i class="{{this}}"></i>
+            {{/each}}
+        </div>
+        <div style="d-flex">
+        <a href="/project/edit/{{@index}}" class="btn btn-dark" style=" width:49%">Edit</a>
+        <a href="/project/delete/{{@index}}" class="btn btn-dark" style="width:49%">Hapus</a>
+        </div>
+        </div>
+    </div></a> </div>
+        {{/each}}
           </div>
         </div>
        </section>
-<script>renderPage()</script>
+
     </body>
 </html>
